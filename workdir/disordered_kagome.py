@@ -283,7 +283,7 @@ for d in [0.01, 0.3, 0.5, 1.0, 1.5]:
         # Plotting #
         ############
 
-        save_fig_to = '/mnt/d/Masters/KPM/DOS/Kagome/'
+        save_fig_to = './plots/'
 
         plt.plot(est_energies, est_densities)
         plt.title("Disordered Euler Kagome DOS with KPM ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
