@@ -10,9 +10,10 @@ import matplotlib.pyplot as plt
 
 # Default settings
 
-lat_const = 1  # lattice constant of graphene (unit: nm)
-t1 = 1.0    # nearest neighbor hopping parameter for graphene (unit: eV)
-t2 = -0.5*(1j)    # next nearest neighbor hopping parameter for graphene (unit: eV)
+lat_const = 1  # lattice constant of kagome (unit: nm)
+t1 = -1.0    # nearest neighbor hopping parameter for kagome (unit: eV)
+t2 = -1.0*0.0    # next nearest neighbor hopping parameter for kagome (unit: eV)
+tn = 0.0    # interlayer hopping between kagomes (unit: eV)
 d  = 1.0    # standard deviation in Gaussian disorder (unit: eV)
 L = 250 # size of the system (in each dimension)
 averaging = 200 # number of runs for averaging DOS and conductivities
@@ -25,15 +26,26 @@ T_min = 0.01
 T_max = 5.00
 T = np.linspace(T_min, T_max, N_binsT)
 
-def make_system(type_graphene = 'monolayer'):
+
+##########
+# BUILD  #
+##########
+
+def make_system(type_kagome = 'monolayer'):
+    
     Bravais_vector = [(    lat_const,                     0), 
                       (0.5*lat_const, 0.5*lat_const*sqrt(3))] # Bravais vectors
-    Bottom_Lat_pos = [(0, lat_const/sqrt(3)), (0,  0)]    # The position of sublattice atoms in the layer  
+    Bottom_Lat_pos = [(0.5*lat_const, 0), (0.25*lat_const, 0.25*lat_const*sqrt(3)), (0,  0)]    # The position of sublattice atoms in Bottom layer  
+    Upper_Lat_pos  = [(0, 0), (-0.5*lat_const, 0), (-0.25*lat_const, -0.25*lat_const*sqrt(3))]       # The position of sublattice atoms in Upper layer
     
     Bottom_lat = kwant.lattice.general(Bravais_vector, Bottom_Lat_pos, norbs=1)
-    B_sub_a, B_sub_b = Bottom_lat.sublattices
+    B_sub_a, B_sub_b, B_sub_c = Bottom_lat.sublattices
     
-    sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
+    if type_kagome == 'bilayer':
+        Upper_lat  = kwant.lattice.general(Bravais_vector, Upper_Lat_pos , norbs=1)
+        U_sub_a, U_sub_b, U_sub_c = Upper_lat.sublattices   
+    
+    #sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
     bulk = kwant.Builder()
     
     for x in range(int(-L/2), int(L/2)):
@@ -43,35 +55,67 @@ def make_system(type_graphene = 'monolayer'):
 
             bulk[B_sub_a(x,y)] = np.random.normal(0, d, 1)
             bulk[B_sub_b(x,y)] = np.random.normal(0, d, 1)
-            #print(bulk[B_sub_a(x,y)])
-    #print(bulk[B_sub_a(0,0)], bulk[B_sub_a(1,1)], B_sub_a(-1,-1))
+            bulk[B_sub_c(x,y)] = np.random.normal(0, d, 1)
     
-    bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((0,-1), B_sub_a,B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_a,B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_a)] = t1
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
     
         # Next neighbors
 
-    bulk[kwant.builder.HoppingKind((1,0), B_sub_b,B_sub_b)] = -t2
-    bulk[kwant.builder.HoppingKind((0,1), B_sub_b,B_sub_b)] = -t2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_b,B_sub_b)] = -t2 
-    bulk[kwant.builder.HoppingKind((1,0), B_sub_a,B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((0,1), B_sub_a,B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_a,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((1,-1), B_sub_c,B_sub_a)] = t2
+    #bulk[kwant.builder.HoppingKind((1,0), B_sub_b,B_sub_a)] = t2
+    #bulk[kwant.builder.HoppingKind((0,-1), B_sub_b,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((0,1),B_sub_a,B_sub_b)] = t2
+    #bulk[kwant.builder.HoppingKind((1,0), B_sub_c,B_sub_b)] = t2
+    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_c,B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((1,-1), B_sub_b,B_sub_c)] = t2
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_b,B_sub_c)] = t2
+    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_a,B_sub_c)] = t2
+    #bulk[kwant.builder.HoppingKind((0,-1),B_sub_a,B_sub_c)] = t2
+
+    # define hopping and on-site potential on upper layer kagome
     
-    # For debugging hoppings
+    if type_kagome == 'bilayer': 
+        bulk[U_sub_a(0,0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_b(0,0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_c(0,0)] = np.random.normal(0, 1, 1)
+        
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_a)] = t1
+        bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
+    
+        # Next neighbors
 
-    #bulk[Bottom_lat.neighbors()] = t1
-    #bulk[B_sub_a.neighbors()] = t2
-    #bulk[B_sub_b.neighbors()] = -t2
-
+        bulk[kwant.builder.HoppingKind((0,1), U_sub_c,U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1,-1), U_sub_c, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1,0), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((0,-1), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((-1,0), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((0,1), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1,0), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((-1,1), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1,-1), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1,0), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1,1), U_sub_a, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((0,-1), U_sub_a, U_sub_c)] = t2
+ 
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_c)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_c)] = tn 
+    
     return bulk
-
-# Debugging syst for Haldane
-
-def make_syst_topo(a=1, t=1, t2=0.5):
-    lat = kwant.lattice.honeycomb(a, norbs=1, name=['a', 'b'])
-    return lat
 
 # Different geometries of the finite system
 
@@ -87,7 +131,7 @@ def circle(site):
 # Declare big things coming
 
 
-for x in [0.00, 0.50]:
+for x in [0.00, 0.28, 0.33, 0.50, 1.00]:
     
     legend = []
     
@@ -102,28 +146,18 @@ for x in [0.00, 0.50]:
         all_T = []
         all_cond_xx_T = []
         all_cond_xy_T = []
-
+        
         for av in range(0, averaging):
         
             # Hoppings
             
-            t1 = 1.0
-            t2 = -x*(1j)
+            t1 = -1.0 + x
+            t2 = -x
 
             syst = kwant.Builder() 
-            model = make_system(type_graphene = 'monolayer')
-            #kwant.plot(model)
-            #model = make_syst_topo()
-            area_per_site = np.abs(lat_const*lat_const*np.sqrt(3)/2)/2
+            model = make_system(type_kagome = 'monolayer')
+            area_per_site = np.abs(lat_const*lat_const*np.sqrt(3)/2)/3
             syst.fill(model, trunc, (0, 0));
-            
-            # Debugging...
-
-            #syst[model.shape(trunc,(0,0))] = 0.
-            #syst[model.neighbors()] = t1
-            # add second neighbours hoppings
-            #syst[model.a.neighbors()] = -t2
-            #syst[model.b.neighbors()] = t2
             
             syst.eradicate_dangling()
             
@@ -137,10 +171,9 @@ for x in [0.00, 0.50]:
         
             rho = kwant.kpm.SpectralDensity(fsyst)
             energies, densities = rho()
-            #print(len(energies), len(densities))
             print("Averaging:", av+1,"/", averaging)
             
-                       # Evaluate conductivity tensor
+            # Evaluate conductivity tensor
 
             where = lambda s: np.linalg.norm(s.pos) < 1
 
@@ -154,7 +187,7 @@ for x in [0.00, 0.50]:
             #print("-----mu------")
             #print([(cond_xx_miu[i], energies[i]) for i in range(0, len(energies))])
             #print()
-            cond_xx_T = [cond_xx(mu = 0, temperature = T[i])/(area_per_site) for i in range(len(T)) ]
+            cond_xx_T = [cond_xx(mu = -1, temperature = T[i])/(area_per_site) for i in range(len(T)) ]
 
             # xy component
 
@@ -163,7 +196,7 @@ for x in [0.00, 0.50]:
             #cond_xy = kwant.kpm.conductivity(fsyst, alpha='x', beta='y')
 
             cond_xy_miu = [cond_xy(mu = e, temperature = 0.01)/(area_per_site) for e in energies ]
-            cond_xy_T = [cond_xy(mu = 0, temperature = T[i])/(area_per_site) for i in range(len(T)) ] 
+            cond_xy_T = [cond_xy(mu = -1, temperature = T[i])/(area_per_site) for i in range(len(T)) ] 
         
             # For estimator
             
@@ -254,12 +287,13 @@ for x in [0.00, 0.50]:
         # SAVING   #
         ############
 
-        file_name = "Haldane_DOS_dis_full_"+str(d)+"_tNNN_"+str(x)+".dat"
+        file_name = "Euler_DOS_dis_full_"+str(d)+"_tNNN_"+str(x)+".dat"
         with open(file_name, "x") as file_fd:
             for i in range(0, len(est_energies)):
                 file_fd.write(str(est_energies[i])+" "+str(est_densities[i])+" "+str(est_cond_xx_miu[i])+" "+str(est_cond_xy_miu[i])+"\n")
 
-"""       
+"""
+
         ############
         # Plotting #
         ############
@@ -267,57 +301,57 @@ for x in [0.00, 0.50]:
         save_fig_to = './'
 
         plt.plot(est_energies, est_densities)
-        plt.title("Disordered Haldane DOS with KPM ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(np.abs(t2),2))+")", y=1.1)
-        plt.xlim(E_min,E_max)
-        #plt.ylim(0, 500)
-        plt.xlabel("Energy (E) / t")
+        plt.title("Disordered Euler Kagome DOS with KPM ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
+        plt.xlim(E_min, E_max)
+        #plt.ylim(0, 30000)
+        plt.xlabel("Energy (E) / |t + t'|")
         plt.ylabel(r"Density of states $\rho(E)$ (a.u.)")
         plt.tight_layout()
         #plt.margins(x = 1.5, y = 1.0)
         #plt.show()
-    
         plt.savefig(save_fig_to + "DOS_dis_full_"+str(d)+"_tNNN_"+str(x)+".png", dpi='figure')
         plt.clf()
 
         # Conductivity tensor xx component
 
         plt.plot(est_energies, est_cond_xx_miu)
-        plt.title("Zero temperature conductivity $\sigma_{xx}$ at different chemical potentials \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(np.abs(t2),2))+")", y=1.1)
+        plt.title("Average conductivity $\sigma_{xx}$ at different chemical potentials \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
         plt.xlabel(r"Chemical potential $\mu$")
-        plt.ylabel(r"Conductivity $\sigma_{xx}$ / $e^2/h$")
-        plt.xlim(E_min, E_max)
+        plt.ylabel(r"Conductivity $\langle \sigma_{xx} \rangle$ $(e^2/h)$")
+        plt.xlim(min(est_energies), max(est_energies))
         plt.tight_layout()
         plt.savefig(save_fig_to + "Sigma_xx_mu_dis_"+str(d)+"_tNNN_"+str(x)+".png", bbox_inches = 'tight', dpi='figure')
         plt.clf()
-        
+
         plt.plot(T, est_cond_xx_T)
-        plt.title("Conductivity $\sigma_{xx}$ vs temperature for $\mu$ = 0 \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(np.abs(t2),2))+")", y=1.1)
+        plt.title("Average conductivity $\sigma_{xx}$ vs temperature for $\mu$ = 0 \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
         plt.xlabel(r"Temperature (T) eV$/k_B$")
-        plt.ylabel(r"Conductivity $\sigma_{xx}$ / $e^2/h$")
-        plt.xlim(T_min,T_max)
+        plt.ylabel(r"Conductivity $\langle \sigma_{xx} \rangle$ $(e^2/h)$")
+        plt.xlim(T_min,T_max-0.01)
 
         plt.tight_layout()
         plt.savefig(save_fig_to + "Sigma_xx_T_dis_"+str(d)+"_tNNN_"+str(x)+".png", bbox_inches = 'tight', dpi='figure')
         plt.clf()
-        
+
         # Conductivity tensor xy component
 
         plt.plot(est_energies, est_cond_xy_miu)
-        plt.title("Zero temperature conductivity $\sigma_{xy}$ at different chemical potentials \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(np.abs(t2),2))+")", y=1.1)
+        plt.title("Average conductivity $\sigma_{xy}$ at different chemical potentials \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
         plt.xlabel(r"Chemical potential $\mu$")
-        plt.ylabel(r"Conductivity $\sigma_{xy}$ / $e^2/h$")
-        plt.xlim(E_min, E_max)
+        plt.xlim(min(est_energies), max(est_energies))
+        plt.ylabel(r"Conductivity $\langle \sigma_{xy} \rangle$ $(e^2/h)$")
+        plt.xlim()
         plt.tight_layout()
         plt.savefig(save_fig_to + "Sigma_xy_mu_dis_"+str(d)+"_tNNN_"+str(x)+".png", bbox_inches = 'tight', dpi='figure')
         plt.clf()
-        
+
         plt.plot(T, est_cond_xy_T)
-        plt.title("Conductivity $\sigma_{xy}$ vs temperature for $\mu$ = 0 \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(np.abs(t2),2))+")", y=1.1)
+        plt.title("Conductivity $\sigma_{xy}$ vs temperature for $\mu$ = 0 \n ($\sigma$ = "+str(round(d,2))+", t = "+str(round(t1, 2))+", t' = "+str(round(t2, 2))+")", y=1.1)
         plt.xlabel(r"Temperature (T) eV$/k_B$")
-        plt.ylabel(r"Conductivity $\sigma_{xy}$ / $e^2/h$")
-        plt.xlim(T_min,T_max)
+        plt.ylabel(r"Conductivity $\langle \sigma_{xy} \rangle$ $(e^2/h)$")
+        plt.xlim(T_min,T_max-0.01)
 
         plt.tight_layout()
         plt.savefig(save_fig_to + "Sigma_xy_T_dis_"+str(d)+"_tNNN_"+str(x)+".png", bbox_inches = 'tight', dpi='figure')
         plt.clf()
-"""        
+"""
