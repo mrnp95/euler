@@ -2,13 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/topoWire_cclake_1.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/topoWire_cclake_2.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.01_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.01_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.01_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.01_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.01_tNNN_1.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.1_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.1_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.1_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.1_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.1_tNNN_1.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.3_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.3_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.3_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.3_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.3_tNNN_1.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.5_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.5_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.5_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.5_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.5_tNNN_1.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.8_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.8_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.8_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.8_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_0.8_tNNN_1.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_1.0_tNNN_0.0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_1.0_tNNN_0.28.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_1.0_tNNN_0.33.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_1.0_tNNN_0.5.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/Euler_DOS_dis_full_1.0_tNNN_1.0.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/topoWire_cclake.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/machine.file.55250340" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/machine.file.55250425" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/machine.file.55250426" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/py.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/slurm-55250340.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/slurm-55250425.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/slurm-55250426.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/topoWire_cclake_1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runs/topoWire_cclake_1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/topoWire_cclake_2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runs/topoWire_cclake_2.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +65,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -52,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
