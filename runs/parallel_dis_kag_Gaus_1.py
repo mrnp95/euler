@@ -12,7 +12,7 @@ t1 = -1.0  # nearest neighbor hopping parameter for kagome (unit: eV)
 t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
 tn = 0.0  # interlayer hopping between kagomes (unit: eV)
 d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
-L = 100  # size of the system (in each dimension)
+L = 150  # size of the system (in each dimension)
 averaging = 2  # number of runs for averaging DOS and conductivities
 
 # Domains of cond function for later
