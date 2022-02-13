@@ -5,24 +5,6 @@ import kwant
 import numpy as np
 from numpy import sqrt
 
-# Default settings
-
-lat_const = 1  # lattice constant of kagome (unit: nm)
-t1 = -1.0  # nearest neighbor hopping parameter for kagome (unit: eV)
-t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
-tn = 0.0  # interlayer hopping between kagomes (unit: eV)
-d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
-L = 150  # size of the system (in each dimension)
-averaging = 2  # number of runs for averaging DOS and conductivities
-
-# Domains of cond function for later
-
-N_bins = 100  # Bins for energies in the estimator
-N_binsT = 500  # Bins for temperature
-T_min = 0.01
-T_max = 5.00
-T = np.linspace(T_min, T_max, N_binsT)
-
 
 ##########
 # BUILD  #
@@ -298,6 +280,24 @@ def cluster_run(run_index):
 
 def main():
     print("Number of processors: ", mp.cpu_count())
+
+    # Default settings
+
+    lat_const = 1  # lattice constant of kagome (unit: nm)
+    t1 = -1.0  # nearest neighbor hopping parameter for kagome (unit: eV)
+    t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
+    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
+    d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
+    L = 150  # size of the system (in each dimension)
+    averaging = 2  # number of runs for averaging DOS and conductivities
+
+    # Domains of cond function for later
+
+    N_bins = 100  # Bins for energies in the estimator
+    N_binsT = 500  # Bins for temperature
+    T_min = 0.01
+    T_max = 5.00
+    T = np.linspace(T_min, T_max, N_binsT)
 
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
     ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0]

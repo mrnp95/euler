@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J TopoWire_run
+#SBATCH -J Euler_topo
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
