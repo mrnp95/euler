@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/DOS_dis_full_0.01_tNNN_0.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/DOS_dis_full_0.01_tNNN_0.5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xx_T_dis_0.01_tNNN_0.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xx_T_dis_0.01_tNNN_0.5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xx_mu_dis_0.01_tNNN_0.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xx_mu_dis_0.01_tNNN_0.5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xy_T_dis_0.01_tNNN_0.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xy_T_dis_0.01_tNNN_0.5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xy_mu_dis_0.01_tNNN_0.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workdir/plots/Sigma_xy_mu_dis_0.01_tNNN_0.5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/disordered_kagome_Gaussian.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/runs/topoWire_cclake.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runs/topoWire_cclake.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
