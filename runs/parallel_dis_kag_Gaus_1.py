@@ -13,7 +13,7 @@ t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
 tn = 0.0  # interlayer hopping between kagomes (unit: eV)
 d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
 L = 250  # size of the system (in each dimension)
-averaging = 200  # number of runs for averaging DOS and conductivities
+averaging = 2  # number of runs for averaging DOS and conductivities
 
 # Domains of cond function for later
 
@@ -300,7 +300,7 @@ def main():
     print("Number of processors: ", mp.cpu_count())
 
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
-    ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
+    ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0]
 
     row = len(xs)*len(ds)
     col = 3
