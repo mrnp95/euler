@@ -13,7 +13,7 @@
 #SBATCH -J TopoWire_run
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
-#SBATCH -p cclake
+#SBATCH -p skylake-himem
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=1
 #! How many (MPI) tasks will there be in total? (<= nodes*56)
