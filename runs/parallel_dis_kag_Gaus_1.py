@@ -10,7 +10,7 @@ from numpy import sqrt
 # BUILD  #
 ##########
 
-def make_system(type_kagome = 'monolayer'):
+def make_system(t1, t2, tn, lat_const, L, d, type_kagome = 'monolayer'):
     
     Bravais_vector = [(    lat_const,                     0), 
                       (0.5*lat_const, 0.5*lat_const*sqrt(3))] # Bravais vectors
@@ -117,6 +117,21 @@ def cluster_run(run_index):
     print("DETAILS OF RUN WITH INDEX: " + str(run_num))
     print("################### Beginning of run " + str(run_num) + " ###################")
 
+    # Default settings
+
+    lat_const = 1  # lattice constant of kagome (unit: nm)
+    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
+    L = 150  # size of the system (in each dimension)
+    averaging = 2  # number of runs for averaging DOS and conductivities
+
+    # Domains of cond function for later
+
+    N_bins = 100  # Bins for energies in the estimator
+    N_binsT = 500  # Bins for temperature
+    T_min = 0.01
+    T_max = 5.00
+    T = np.linspace(T_min, T_max, N_binsT)
+    
     x = run_index[1]
     d = run_index[2]
 
@@ -137,15 +152,15 @@ def cluster_run(run_index):
         t2 = -x
 
         syst = kwant.Builder()
-        model = make_system(type_kagome='monolayer')
+        model = make_system(t1, t2, tn, lat_const, L, d, type_kagome='monolayer')
         area_per_site = np.abs(lat_const * lat_const * np.sqrt(3) / 2) / 3
-        syst.fill(model, trunc, (0, 0));
+        syst.fill(model, trunc, (0, 0))
 
         syst.eradicate_dangling()
 
         # Plot system before running
 
-        # kwant.plot(syst);
+        # kwant.plot(syst)
 
         fsyst = syst.finalized()
 
@@ -280,27 +295,11 @@ def cluster_run(run_index):
 
 def main():
     print("Number of processors: ", mp.cpu_count())
-    
-    # Default settings
-
-    lat_const = 1  # lattice constant of kagome (unit: nm)
-    t1 = -1.0  # nearest neighbor hopping parameter for kagome (unit: eV)
-    t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
-    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
-    d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
-    L = 150  # size of the system (in each dimension)
-    averaging = 2  # number of runs for averaging DOS and conductivities
-
-    # Domains of cond function for later
-
-    N_bins = 100  # Bins for energies in the estimator
-    N_binsT = 500  # Bins for temperature
-    T_min = 0.01
-    T_max = 5.00
-    T = np.linspace(T_min, T_max, N_binsT)
 
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
+    # xs = [0.28]
     ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0]
+    # ds = [0.01, 0.1]
 
     row = len(xs)*len(ds)
     col = 3

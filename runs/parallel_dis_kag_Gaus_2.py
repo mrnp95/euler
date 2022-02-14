@@ -10,91 +10,92 @@ from numpy import sqrt
 # BUILD  #
 ##########
 
-def make_system(type_kagome = 'monolayer'):
-    
-    Bravais_vector = [(    lat_const,                     0), 
-                      (0.5*lat_const, 0.5*lat_const*sqrt(3))] # Bravais vectors
-    Bottom_Lat_pos = [(0.5*lat_const, 0), (0.25*lat_const, 0.25*lat_const*sqrt(3)), (0,  0)]    # The position of sublattice atoms in Bottom layer  
-    Upper_Lat_pos  = [(0, 0), (-0.5*lat_const, 0), (-0.25*lat_const, -0.25*lat_const*sqrt(3))]       # The position of sublattice atoms in Upper layer
-    
+def make_system(t1, t2, tn, lat_const, L, d, type_kagome='monolayer'):
+    Bravais_vector = [(lat_const, 0),
+                      (0.5 * lat_const, 0.5 * lat_const * sqrt(3))]  # Bravais vectors
+    Bottom_Lat_pos = [(0.5 * lat_const, 0), (0.25 * lat_const, 0.25 * lat_const * sqrt(3)),
+                      (0, 0)]  # The position of sublattice atoms in Bottom layer
+    Upper_Lat_pos = [(0, 0), (-0.5 * lat_const, 0), (
+    -0.25 * lat_const, -0.25 * lat_const * sqrt(3))]  # The position of sublattice atoms in Upper layer
+
     Bottom_lat = kwant.lattice.general(Bravais_vector, Bottom_Lat_pos, norbs=1)
     B_sub_a, B_sub_b, B_sub_c = Bottom_lat.sublattices
-    
+
     if type_kagome == 'bilayer':
-        Upper_lat  = kwant.lattice.general(Bravais_vector, Upper_Lat_pos , norbs=1)
-        U_sub_a, U_sub_b, U_sub_c = Upper_lat.sublattices   
-    
-    #sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
+        Upper_lat = kwant.lattice.general(Bravais_vector, Upper_Lat_pos, norbs=1)
+        U_sub_a, U_sub_b, U_sub_c = Upper_lat.sublattices
+
+        # sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
     bulk = kwant.Builder()
-    
-    for x in range(int(-L/2), int(L/2)):
-        for y in range(int(-L/2), int(L/2)):
 
-	    # define hopping and on-site potential on bottom layer kagome
+    for x in range(int(-L / 2), int(L / 2)):
+        for y in range(int(-L / 2), int(L / 2)):
+            # define hopping and on-site potential on bottom layer kagome
 
-            bulk[B_sub_a(x,y)] = np.random.normal(0, d, 1)
-            bulk[B_sub_b(x,y)] = np.random.normal(0, d, 1)
-            bulk[B_sub_c(x,y)] = np.random.normal(0, d, 1)
-    
-    bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_a)] = t1
-    bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_c)] = t1
-    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
-    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
-    
-        # Next neighbors
+            bulk[B_sub_a(x, y)] = np.random.normal(0, d, 1)
+            bulk[B_sub_b(x, y)] = np.random.normal(0, d, 1)
+            bulk[B_sub_c(x, y)] = np.random.normal(0, d, 1)
 
-    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_c,B_sub_a)] = t2
-    #bulk[kwant.builder.HoppingKind((1,0), B_sub_b,B_sub_a)] = t2
-    #bulk[kwant.builder.HoppingKind((0,-1), B_sub_b,B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_b)] = t2
-    bulk[kwant.builder.HoppingKind((0,1),B_sub_a,B_sub_b)] = t2
-    #bulk[kwant.builder.HoppingKind((1,0), B_sub_c,B_sub_b)] = t2
-    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_c,B_sub_b)] = t2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_b,B_sub_c)] = t2
-    bulk[kwant.builder.HoppingKind((-1,0), B_sub_b,B_sub_c)] = t2
-    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_a,B_sub_c)] = t2
-    #bulk[kwant.builder.HoppingKind((0,-1),B_sub_a,B_sub_c)] = t2
+    bulk[kwant.builder.HoppingKind((0, 0), B_sub_b, B_sub_a)] = t1
+    bulk[kwant.builder.HoppingKind((0, 0), B_sub_c, B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((0, 0), B_sub_a, B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((-1, 0), B_sub_a, B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((0, 1), B_sub_c, B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((1, -1), B_sub_b, B_sub_a)] = t1
+
+    # Next neighbors
+
+    bulk[kwant.builder.HoppingKind((0, 1), B_sub_c, B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((1, -1), B_sub_c, B_sub_a)] = t2
+    # bulk[kwant.builder.HoppingKind((1,0), B_sub_b,B_sub_a)] = t2
+    # bulk[kwant.builder.HoppingKind((0,-1), B_sub_b,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((-1, 0), B_sub_a, B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((0, 1), B_sub_a, B_sub_b)] = t2
+    # bulk[kwant.builder.HoppingKind((1,0), B_sub_c,B_sub_b)] = t2
+    # bulk[kwant.builder.HoppingKind((-1,1), B_sub_c,B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((1, -1), B_sub_b, B_sub_c)] = t2
+    bulk[kwant.builder.HoppingKind((-1, 0), B_sub_b, B_sub_c)] = t2
+    # bulk[kwant.builder.HoppingKind((-1,1), B_sub_a,B_sub_c)] = t2
+    # bulk[kwant.builder.HoppingKind((0,-1),B_sub_a,B_sub_c)] = t2
 
     # define hopping and on-site potential on upper layer kagome
-    
-    if type_kagome == 'bilayer': 
-        bulk[U_sub_a(0,0)] = np.random.normal(0, 1, 1)
-        bulk[U_sub_b(0,0)] = np.random.normal(0, 1, 1)
-        bulk[U_sub_c(0,0)] = np.random.normal(0, 1, 1)
-        
-        bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_b)] = t1
-        bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_c)] = t1
-        bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_a)] = t1
-        bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
-        bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
-        bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
-    
+
+    if type_kagome == 'bilayer':
+        bulk[U_sub_a(0, 0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_b(0, 0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_c(0, 0)] = np.random.normal(0, 1, 1)
+
+        bulk[kwant.builder.HoppingKind((0, 0), B_sub_a, B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((0, 0), B_sub_b, B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0, 0), B_sub_c, B_sub_a)] = t1
+        bulk[kwant.builder.HoppingKind((-1, 0), B_sub_a, B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0, 1), B_sub_c, B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((1, -1), B_sub_b, B_sub_a)] = t1
+
         # Next neighbors
 
-        bulk[kwant.builder.HoppingKind((0,1), U_sub_c,U_sub_a)] = t2
-        bulk[kwant.builder.HoppingKind((1,-1), U_sub_c, U_sub_a)] = t2
-        bulk[kwant.builder.HoppingKind((1,0), U_sub_b, U_sub_a)] = t2
-        bulk[kwant.builder.HoppingKind((0,-1), U_sub_b, U_sub_a)] = t2
-        bulk[kwant.builder.HoppingKind((-1,0), U_sub_a, U_sub_b)] = t2
-        bulk[kwant.builder.HoppingKind((0,1), U_sub_a, U_sub_b)] = t2
-        bulk[kwant.builder.HoppingKind((1,0), U_sub_c, U_sub_b)] = t2
-        bulk[kwant.builder.HoppingKind((-1,1), U_sub_c, U_sub_b)] = t2
-        bulk[kwant.builder.HoppingKind((1,-1), U_sub_b, U_sub_c)] = t2
-        bulk[kwant.builder.HoppingKind((-1,0), U_sub_b, U_sub_c)] = t2
-        bulk[kwant.builder.HoppingKind((-1,1), U_sub_a, U_sub_c)] = t2
-        bulk[kwant.builder.HoppingKind((0,-1), U_sub_a, U_sub_c)] = t2
- 
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_b)] = tn
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_c)] = tn
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_a)] = tn
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_a)] = tn
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_b)] = tn
-        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_c)] = tn 
-    
+        bulk[kwant.builder.HoppingKind((0, 1), U_sub_c, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1, -1), U_sub_c, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1, 0), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((0, -1), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((-1, 0), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((0, 1), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1, 0), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((-1, 1), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1, -1), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1, 0), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1, 1), U_sub_a, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((0, -1), U_sub_a, U_sub_c)] = t2
+
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_a, B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_b, B_sub_c)] = tn
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_c, B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_b, B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_c, B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0, 0), U_sub_a, B_sub_c)] = tn
+
     return bulk
+
 
 # Different geometries of the finite system
 
@@ -102,10 +103,12 @@ def trunc(site):
     x, y = abs(site.pos)
     return abs(x) < 800 and abs(y) < 800
 
+
 def circle(site):
     x, y = site.pos
     r = 30
     return x ** 2 + y ** 2 < r ** 2
+
 
 # Declare big things coming
 
@@ -116,6 +119,21 @@ def cluster_run(run_index):
     np.random.seed(run_num)
     print("DETAILS OF RUN WITH INDEX: " + str(run_num))
     print("################### Beginning of run " + str(run_num) + " ###################")
+
+    # Default settings
+
+    lat_const = 1  # lattice constant of kagome (unit: nm)
+    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
+    L = 150  # size of the system (in each dimension)
+    averaging = 2  # number of runs for averaging DOS and conductivities
+
+    # Domains of cond function for later
+
+    N_bins = 100  # Bins for energies in the estimator
+    N_binsT = 500  # Bins for temperature
+    T_min = 0.01
+    T_max = 5.00
+    T = np.linspace(T_min, T_max, N_binsT)
 
     x = run_index[1]
     d = run_index[2]
@@ -137,15 +155,15 @@ def cluster_run(run_index):
         t2 = -x
 
         syst = kwant.Builder()
-        model = make_system(type_kagome='monolayer')
+        model = make_system(t1, t2, tn, lat_const, L, d, type_kagome='monolayer')
         area_per_site = np.abs(lat_const * lat_const * np.sqrt(3) / 2) / 3
-        syst.fill(model, trunc, (0, 0));
+        syst.fill(model, trunc, (0, 0))
 
         syst.eradicate_dangling()
 
         # Plot system before running
 
-        # kwant.plot(syst);
+        # kwant.plot(syst)
 
         fsyst = syst.finalized()
 
@@ -281,28 +299,10 @@ def cluster_run(run_index):
 def main():
     print("Number of processors: ", mp.cpu_count())
 
-    # Default settings
-
-    lat_const = 1  # lattice constant of kagome (unit: nm)
-    t1 = -1.0  # nearest neighbor hopping parameter for kagome (unit: eV)
-    t2 = -1.0 * 0.0  # next nearest neighbor hopping parameter for kagome (unit: eV)
-    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
-    d = 1.0  # standard deviation in Gaussian disorder (unit: eV)
-    L = 150  # size of the system (in each dimension)
-    averaging = 2  # number of runs for averaging DOS and conductivities
-
-    # Domains of cond function for later
-
-    N_bins = 100  # Bins for energies in the estimator
-    N_binsT = 500  # Bins for temperature
-    T_min = 0.01
-    T_max = 5.00
-    T = np.linspace(T_min, T_max, N_binsT)
-
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
     ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
 
-    row = len(xs)*len(ds)
+    row = len(xs) * len(ds)
     col = 3
 
     run_table = np.ones((row, col))
