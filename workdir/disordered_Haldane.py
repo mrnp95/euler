@@ -320,4 +320,4 @@ for x in [0.00, 0.50]:
         plt.tight_layout()
         plt.savefig(save_fig_to + "Sigma_xy_T_dis_"+str(d)+"_tNNN_"+str(x)+".png", bbox_inches = 'tight', dpi='figure')
         plt.clf()
-"""        
+"""
