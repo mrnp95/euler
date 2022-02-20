@@ -1,80 +1,111 @@
-import kwant 
-import numpy as np
-import scipy
-import scipy.sparse.linalg as sla
-import scipy.linalg as la
-from numpy import sqrt
-import tinyarray as ta
-import matplotlib.pyplot as plt
 import concurrent
 import multiprocessing as mp
 import time
+import kwant
+import numpy as np
+from numpy import sqrt
 
 
 ##########
 # BUILD  #
 ##########
 
-def make_system(t1, t2, lat_const, L, d, type_graphene='monolayer'):
-    Bravais_vector = [(lat_const, 0),
-                      (0.5 * lat_const, 0.5 * lat_const * sqrt(3))]  # Bravais vectors
-    Bottom_Lat_pos = [(0, lat_const / sqrt(3)), (0, 0)]  # The position of sublattice atoms in the layer
-
+def make_system(t1, t2, tn, lat_const, L, d, type_kagome = 'monolayer'):
+    
+    Bravais_vector = [(    lat_const,                     0), 
+                      (0.5*lat_const, 0.5*lat_const*sqrt(3))] # Bravais vectors
+    Bottom_Lat_pos = [(0.5*lat_const, 0), (0.25*lat_const, 0.25*lat_const*sqrt(3)), (0,  0)]    # The position of sublattice atoms in Bottom layer  
+    Upper_Lat_pos  = [(0, 0), (-0.5*lat_const, 0), (-0.25*lat_const, -0.25*lat_const*sqrt(3))]       # The position of sublattice atoms in Upper layer
+    
     Bottom_lat = kwant.lattice.general(Bravais_vector, Bottom_Lat_pos, norbs=1)
-    B_sub_a, B_sub_b = Bottom_lat.sublattices
-
-    sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
+    B_sub_a, B_sub_b, B_sub_c = Bottom_lat.sublattices
+    
+    if type_kagome == 'bilayer':
+        Upper_lat  = kwant.lattice.general(Bravais_vector, Upper_Lat_pos , norbs=1)
+        U_sub_a, U_sub_b, U_sub_c = Upper_lat.sublattices   
+    
+    #sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
     bulk = kwant.Builder()
+    
+    for x in range(int(-L/2), int(L/2)):
+        for y in range(int(-L/2), int(L/2)):
 
-    for x in range(int(-L / 2), int(L / 2)):
-        for y in range(int(-L / 2), int(L / 2)):
-            # define hopping and on-site potential on bottom layer kagome
+	    # define hopping and on-site potential on bottom layer kagome
 
-            bulk[B_sub_a(x, y)] = np.random.normal(0, d, 1)
-            bulk[B_sub_b(x, y)] = np.random.normal(0, d, 1)
-            # print(bulk[B_sub_a(x,y)])
-    # print(bulk[B_sub_a(0,0)], bulk[B_sub_a(1,1)], B_sub_a(-1,-1))
+            bulk[B_sub_a(x,y)] = np.random.uniform(-d, d)
+            bulk[B_sub_b(x,y)] = np.random.uniform(-d, d)
+            bulk[B_sub_c(x,y)] = np.random.uniform(-d, d)
+    
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_a)] = t1
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
+    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
+    
+        # Next neighbors
 
-    bulk[kwant.builder.HoppingKind((0, 0), B_sub_a, B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((0, -1), B_sub_a, B_sub_b)] = t1
-    bulk[kwant.builder.HoppingKind((1, -1), B_sub_a, B_sub_b)] = t1
+    bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((1,-1), B_sub_c,B_sub_a)] = t2
+    #bulk[kwant.builder.HoppingKind((1,0), B_sub_b,B_sub_a)] = t2
+    #bulk[kwant.builder.HoppingKind((0,-1), B_sub_b,B_sub_a)] = t2
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((0,1),B_sub_a,B_sub_b)] = t2
+    #bulk[kwant.builder.HoppingKind((1,0), B_sub_c,B_sub_b)] = t2
+    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_c,B_sub_b)] = t2
+    bulk[kwant.builder.HoppingKind((1,-1), B_sub_b,B_sub_c)] = t2
+    bulk[kwant.builder.HoppingKind((-1,0), B_sub_b,B_sub_c)] = t2
+    #bulk[kwant.builder.HoppingKind((-1,1), B_sub_a,B_sub_c)] = t2
+    #bulk[kwant.builder.HoppingKind((0,-1),B_sub_a,B_sub_c)] = t2
 
-    # Next neighbors
+    # define hopping and on-site potential on upper layer kagome
+    
+    if type_kagome == 'bilayer': 
+        bulk[U_sub_a(0,0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_b(0,0)] = np.random.normal(0, 1, 1)
+        bulk[U_sub_c(0,0)] = np.random.normal(0, 1, 1)
+        
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_a,B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_b,B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0,0), B_sub_c,B_sub_a)] = t1
+        bulk[kwant.builder.HoppingKind((-1,0), B_sub_a,B_sub_c)] = t1
+        bulk[kwant.builder.HoppingKind((0,1), B_sub_c,B_sub_b)] = t1
+        bulk[kwant.builder.HoppingKind((1,-1),B_sub_b,B_sub_a)] = t1
+    
+        # Next neighbors
 
-    bulk[kwant.builder.HoppingKind((1, 0), B_sub_b, B_sub_b)] = -t2
-    bulk[kwant.builder.HoppingKind((0, 1), B_sub_b, B_sub_b)] = -t2
-    bulk[kwant.builder.HoppingKind((1, -1), B_sub_b, B_sub_b)] = -t2
-    bulk[kwant.builder.HoppingKind((1, 0), B_sub_a, B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((0, 1), B_sub_a, B_sub_a)] = t2
-    bulk[kwant.builder.HoppingKind((1, -1), B_sub_a, B_sub_a)] = t2
-
-    # For debugging hoppings
-
-    # bulk[Bottom_lat.neighbors()] = t1
-    # bulk[B_sub_a.neighbors()] = t2
-    # bulk[B_sub_b.neighbors()] = -t2
-
+        bulk[kwant.builder.HoppingKind((0,1), U_sub_c,U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1,-1), U_sub_c, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((1,0), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((0,-1), U_sub_b, U_sub_a)] = t2
+        bulk[kwant.builder.HoppingKind((-1,0), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((0,1), U_sub_a, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1,0), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((-1,1), U_sub_c, U_sub_b)] = t2
+        bulk[kwant.builder.HoppingKind((1,-1), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1,0), U_sub_b, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((-1,1), U_sub_a, U_sub_c)] = t2
+        bulk[kwant.builder.HoppingKind((0,-1), U_sub_a, U_sub_c)] = t2
+ 
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_c)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_b,B_sub_a)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_c,B_sub_b)] = tn
+        bulk[kwant.builder.HoppingKind((0,0), U_sub_a,B_sub_c)] = tn 
+    
     return bulk
 
-
-# Debugging syst for Haldane
-def make_syst_topo(a=1, t=1, t2=0.5):
-    lat = kwant.lattice.honeycomb(a, norbs=1, name=['a', 'b'])
-    return lat
-
 # Different geometries of the finite system
-
 
 def trunc(site):
     x, y = abs(site.pos)
     return abs(x) < 800 and abs(y) < 800
 
-
 def circle(site):
     x, y = site.pos
     r = 30
     return x ** 2 + y ** 2 < r ** 2
-
 
 # Declare big things coming
 
@@ -88,8 +119,9 @@ def cluster_run(run_index):
 
     # Default settings
 
-    lat_const = 1  # lattice constant of graphene (unit: nm)
-    L = 200  # size of the system (in each dimension)
+    lat_const = 1  # lattice constant of kagome (unit: nm)
+    tn = 0.0  # interlayer hopping between kagomes (unit: eV)
+    L = 100  # size of the system (in each dimension)
     averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
@@ -99,7 +131,7 @@ def cluster_run(run_index):
     T_min = 0.01
     T_max = 5.00
     T = np.linspace(T_min, T_max, N_binsT)
-
+    
     x = run_index[1]
     d = run_index[2]
 
@@ -116,29 +148,19 @@ def cluster_run(run_index):
     for av in range(0, averaging):
         # Hoppings
 
-        t1 = 1.0
-        t2 = -x * (1j)
+        t1 = -1.0 + x
+        t2 = -x
 
         syst = kwant.Builder()
-        model = make_system(t1, t2, lat_const, L, d, type_graphene='monolayer')
-        # kwant.plot(model)
-        # model = make_syst_topo()
-        area_per_site = np.abs(lat_const * lat_const * np.sqrt(3) / 2) / 2
-        syst.fill(model, trunc, (0, 0));
-
-        # Debugging...
-
-        # syst[model.shape(trunc,(0,0))] = 0.
-        # syst[model.neighbors()] = t1
-        # add second neighbours hoppings
-        # syst[model.a.neighbors()] = -t2
-        # syst[model.b.neighbors()] = t2
+        model = make_system(t1, t2, tn, lat_const, L, d, type_kagome='monolayer')
+        area_per_site = np.abs(lat_const * lat_const * np.sqrt(3) / 2) / 3
+        syst.fill(model, trunc, (0, 0))
 
         syst.eradicate_dangling()
 
         # Plot system before running
 
-        # kwant.plot(syst);
+        # kwant.plot(syst)
 
         fsyst = syst.finalized()
 
@@ -146,7 +168,6 @@ def cluster_run(run_index):
 
         rho = kwant.kpm.SpectralDensity(fsyst)
         energies, densities = rho()
-        # print(len(energies), len(densities))
         print("Averaging:", av + 1, "/", averaging)
 
         # Evaluate conductivity tensor
@@ -163,7 +184,7 @@ def cluster_run(run_index):
         # print("-----mu------")
         # print([(cond_xx_miu[i], energies[i]) for i in range(0, len(energies))])
         # print()
-        cond_xx_T = [cond_xx(mu=0, temperature=T[i]) / (area_per_site) for i in range(len(T))]
+        cond_xx_T = [cond_xx(mu=-1, temperature=T[i]) / (area_per_site) for i in range(len(T))]
 
         # xy component
 
@@ -172,7 +193,7 @@ def cluster_run(run_index):
         # cond_xy = kwant.kpm.conductivity(fsyst, alpha='x', beta='y')
 
         cond_xy_miu = [cond_xy(mu=e, temperature=0.01) / (area_per_site) for e in energies]
-        cond_xy_T = [cond_xy(mu=0, temperature=T[i]) / (area_per_site) for i in range(len(T))]
+        cond_xy_T = [cond_xy(mu=-1, temperature=T[i]) / (area_per_site) for i in range(len(T))]
 
         # For estimator
 
@@ -261,13 +282,12 @@ def cluster_run(run_index):
     # SAVING   #
     ############
 
-    file_name = "./data/haldane/Haldane_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
+    file_name = "Euler_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
     with open(file_name, "x") as file_fd:
         for i in range(0, len(est_energies)):
             file_fd.write(
                 str(est_energies[i]) + " " + str(est_densities[i]) + " " + str(est_cond_xx_miu[i]) + " " + str(
                     est_cond_xy_miu[i]) + "\n")
-
 
     print("################### End of run " + str(run_num) + " ###################")
     return "Run " + str(run_num) + " Succeeded!"
@@ -276,12 +296,12 @@ def cluster_run(run_index):
 def main():
     print("Number of processors: ", mp.cpu_count())
 
-    xs = [0.0, 0.50]
+    xs = [0.0, 0.28, 0.33, 0.50, 1.0]
     # xs = [0.28]
-    ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
+    ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0]
     # ds = [0.01, 0.1]
 
-    row = len(xs) * len(ds)
+    row = len(xs)*len(ds)
     col = 3
 
     run_table = np.ones((row, col))
@@ -308,3 +328,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+        
+
+
