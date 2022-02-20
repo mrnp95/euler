@@ -2,68 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/runs/dis_euler_skylake_uniform.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.01_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.01_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.01_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.01_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.01_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.1_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.1_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.1_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.1_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.1_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.3_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.3_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.3_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.3_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.3_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.5_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.5_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.5_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.5_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.5_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.8_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.8_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.8_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.8_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_0.8_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.0_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.0_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.0_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.0_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.0_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.2_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.2_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.2_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.2_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.2_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.5_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.5_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.5_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.5_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.5_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.8_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.8_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.8_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.8_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_1.8_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.0_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.0_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.0_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.0_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.0_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.5_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.5_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.5_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.5_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_2.5_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_3.0_tNNN_0.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_3.0_tNNN_0.28.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_3.0_tNNN_0.33.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_3.0_tNNN_0.5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/data/euler/Euler_DOS_dis_full_3.0_tNNN_1.0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_uniform.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_uniform.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
