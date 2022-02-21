@@ -121,7 +121,7 @@ def cluster_run(run_index):
 
     lat_const = 1  # lattice constant of kagome (unit: nm)
     tn = 0.0  # interlayer hopping between kagomes (unit: eV)
-    L = 100  # size of the system (in each dimension)
+    L = 50  # size of the system (in each dimension)
     averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
