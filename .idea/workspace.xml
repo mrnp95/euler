@@ -2,8 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_DOS_dis_full_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_DOS_dis_full_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_DOS_dis_full_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_DOS_dis_full_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xx_mu_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xx_mu_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xx_mu_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xx_mu_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xx_mu_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xy_mu_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xy_mu_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xy_mu_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xy_mu_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/Euler_Sigma_xy_mu_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_DOS_dis_full_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_DOS_dis_full_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_DOS_dis_full_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_DOS_dis_full_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_DOS_dis_full_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_combined_mu_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_combined_mu_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_combined_mu_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_combined_mu_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_combined_mu_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xx_mu_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xx_mu_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xx_mu_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xx_mu_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xx_mu_tNNN_1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xy_mu_tNNN_0.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xy_mu_tNNN_0.28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xy_mu_tNNN_0.33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xy_mu_tNNN_0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/uniform/Uniform_Euler_Sigma_xy_mu_tNNN_1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_uniform.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_uniform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_DOS_dis_full_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_DOS_dis_full_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_DOS_dis_full_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_DOS_dis_full_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xx_mu_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xx_mu_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xx_mu_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xx_mu_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xx_mu_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xy_mu_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xy_mu_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xy_mu_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xy_mu_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Euler_Sigma_xy_mu_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_DOS_dis_full_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_DOS_dis_full_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_DOS_dis_full_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_DOS_dis_full_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_DOS_dis_full_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_combined_mu_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_combined_mu_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_combined_mu_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_combined_mu_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_combined_mu_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xx_mu_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xx_mu_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xx_mu_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xx_mu_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xx_mu_tNNN_1.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xy_mu_tNNN_0.0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xy_mu_tNNN_0.28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xy_mu_tNNN_0.33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xy_mu_tNNN_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/Uniform_Euler_Sigma_xy_mu_tNNN_1.0.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
