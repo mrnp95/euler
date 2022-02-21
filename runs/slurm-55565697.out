@@ -1,14 +1,14 @@
 Changed directory to /rds/user/mrn31/hpc-work/euler/runs.
 
-JobID: 55502394
+JobID: 55565697
 ======
-Time: Mon 21 Feb 10:14:29 GMT 2022
-Running on master node: cpu-e-418
+Time: Mon 21 Feb 20:38:47 GMT 2022
+Running on master node: cpu-e-431
 Current directory: /rds/user/mrn31/hpc-work/euler/runs
 
 Nodes allocated:
 ================
-cpu-e-418
+cpu-e-431
 
 numtasks=32, numnodes=1, mpi_tasks_per_node=32 (OMP_NUM_THREADS=1)
 
