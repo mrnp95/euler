@@ -90,7 +90,7 @@ def cluster_run(run_index):
 
     lat_const = 1  # lattice constant of graphene (unit: nm)
     L = 200  # size of the system (in each dimension)
-    averaging = 5  # number of runs for averaging DOS and conductivities
+    averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
 
