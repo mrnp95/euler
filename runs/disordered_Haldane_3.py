@@ -89,8 +89,8 @@ def cluster_run(run_index):
     # Default settings
 
     lat_const = 1  # lattice constant of graphene (unit: nm)
-    L = 200  # size of the system (in each dimension)
-    averaging = 5  # number of runs for averaging DOS and conductivities
+    L = 75  # size of the system (in each dimension)
+    averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
 
@@ -261,7 +261,7 @@ def cluster_run(run_index):
     # SAVING   #
     ############
 
-    file_name = "./data/haldane/uniform/L_200/Haldane_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
+    file_name = "./data/haldane/uniform/L_75/Haldane_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
     with open(file_name, "x") as file_fd:
         for i in range(0, len(est_energies)):
             file_fd.write(

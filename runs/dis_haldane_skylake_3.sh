@@ -130,4 +130,4 @@ source /home/mrn31/.bashrc
 
 conda activate kwant
 
-python ./disordered_Haldane_1.py>haldane_1.out
+python ./disordered_Haldane_3.py>haldane_3.out
