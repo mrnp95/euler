@@ -1,0 +1,11 @@
+name: kpm_ti
+
+channels:
+- conda-forge
+- ioam
+
+dependencies:
+  - python=3.6
+  - kwant=1.4
+  - jupyter=1.0
+  - holoviews=1.1
