@@ -121,7 +121,7 @@ def cluster_run(run_index):
 
     lat_const = 1  # lattice constant of kagome (unit: nm)
     tn = 0.0  # interlayer hopping between kagomes (unit: eV)
-    L = 100  # size of the system (in each dimension)
+    L = 75  # size of the system (in each dimension)
     averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
@@ -282,7 +282,7 @@ def cluster_run(run_index):
     # SAVING   #
     ############
 
-    file_name = "./data/euler/uniform/Euler_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
+    file_name = "./data/euler/uniform/L_75/Euler_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
     with open(file_name, "x") as file_fd:
         for i in range(0, len(est_energies)):
             file_fd.write(
@@ -299,7 +299,7 @@ def main():
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
     # xs = [0.28]
     # ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0]
-    ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
+    ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0, 4.0, 5.0]
     # ds = [0.01, 0.1]
 
     row = len(xs)*len(ds)

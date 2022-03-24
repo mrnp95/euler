@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J Euler_topo
+#SBATCH -J kag_uni_75
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
@@ -21,7 +21,7 @@
 #! 3420 MiB of memory per CPU.
 #SBATCH --ntasks=32
 #! How much wallclock time will be required?
-#SBATCH --time=03:00:00
+#SBATCH --time=04:30:00
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=END
 #! Uncomment this to prevent the job from being requeued (e.g. if
@@ -130,4 +130,4 @@ source /home/mrn31/.bashrc
 
 conda activate kwant
 
-python ./parallel_dis_kag_uniform.py>euler_uniform.out
+python ./parallel_dis_kag_uniform_L75.py>euler_uniform_L75.out
