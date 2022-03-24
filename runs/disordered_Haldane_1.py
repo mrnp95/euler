@@ -276,7 +276,7 @@ def cluster_run(run_index):
 def main():
     print("Number of processors: ", mp.cpu_count())
 
-    xs = [0.0, 0.50]
+    xs = [0.50]
     # xs = [0.28]
     # ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
     ds = [4.0, 5.0]
