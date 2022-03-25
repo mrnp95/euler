@@ -16,7 +16,7 @@ t2 = -1.0    # next nearest neighbor hopping parameter for kagome (unit: eV)
 t3 = 0.0    # next next nearest neighbor hopping parameter for kagome (unit: eV)
 tn = 0.0    # interlayer hopping between kagomes (unit: eV)
 d  = 1.0    # standard deviation in Gaussian disorder (unit: eV)
-L = 100 # size of the system (in each dimension)
+L = 150 # size of the system (in each dimension)
 averaging = 200 # number of runs for averaging DOS and conductivities
 
 # Domains of cond function for later
@@ -50,7 +50,7 @@ def make_system(type_kagome = 'monolayer'):
     bulk = kwant.Builder()
     
     for x in range(int(-L/2), int(L/2)):
-        for y in range(int(-L/2), int(L/2)):
+        for y in range(0, int(L)):
 
 	    # define hopping and on-site potential on bottom layer kagome
 
