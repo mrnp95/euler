@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-L = 50
+L = 100
 
 for x in [0.00, 0.05, 0.25, 0.50, 1.00]:
     

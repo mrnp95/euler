@@ -197,14 +197,16 @@ def pg_op(syst, trf, U):
 def M_cubic(site, n):
     lat = site.family
     tag = site.tag
+    
     # Should always be integer
+    
     #new_tag = tag - (2 * np.dot(n, tag) * n) / np.dot(n, n)
     n1 = np.array([-1, 1, 0])
     n2 = np.array([0, 1, 0])
     n = np.array([-1, 0, 0])
     new_tag = n2 * (np.dot(n, tag) / np.dot(n,n)) + n1 * (np.dot(n2, tag - n1 * np.dot(n, tag) / np.dot(n,n))) 
     new_tag_int = np.array(new_tag, dtype=int)
-    #print(tag, lat, new_tag)
+    ##print(tag, lat, new_tag)
     assert np.allclose(new_tag, new_tag_int)
     return lat(*new_tag_int)
 

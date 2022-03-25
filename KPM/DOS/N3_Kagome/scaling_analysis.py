@@ -9,7 +9,7 @@ for x in [0.00, 0.05, 0.25, 0.50, 1.00]:
     legend = []
     fig_cond_xx, ax_cond_xx = plt.subplots()
 
-    for L in [50]:
+    for L in [100]:
         
         plot = []
 

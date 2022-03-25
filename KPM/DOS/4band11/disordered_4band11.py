@@ -52,11 +52,13 @@ def make_system(type_4band = 'monolayer'):
     bulk = kwant.Builder(sym)
 
     # define hoppings and on-site potentials
-    
-    bulk[B_sub_A(0,0)] = epsA*0+delta+np.random.normal(0, d, 1)
-    bulk[B_sub_B(0,0)] = epsB*0-delta+np.random.normal(0, d, 1)
-    bulk[B_sub_C(0,0)] = epsC*0-delta+np.random.normal(0, d, 1)
-    bulk[B_sub_D(0,0)] = epsD*0+delta+np.random.normal(0, d, 1)
+    for x in range(int(-L/2), int(L/2)):
+		for y in range(int(-L/2), int(L/2)):
+		
+			bulk[B_sub_A(x,y)] = epsA*0+delta+np.random.normal(0, d, 1)
+			bulk[B_sub_B(x,y)] = epsB*0-delta+np.random.normal(0, d, 1)
+			bulk[B_sub_C(x,y)] = epsC*0-delta+np.random.normal(0, d, 1)
+			bulk[B_sub_D(x,y)] = epsD*0+delta+np.random.normal(0, d, 1)
     
     bulk[kwant.builder.HoppingKind((0,1), B_sub_A,B_sub_A)] = t0
     bulk[kwant.builder.HoppingKind((0,-1), B_sub_A,B_sub_A)] = -t0
