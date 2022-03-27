@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J Euler_topo
+#SBATCH -J eu_100_g
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
