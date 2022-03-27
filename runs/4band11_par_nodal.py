@@ -226,7 +226,7 @@ def cluster_run(run_index):
     epsD = 0.5
 
     L = 75 # size of the system (in each dimension)
-    averaging = 5 # number of runs for averaging DOS and conductivities
+    averaging = 200 # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
 
