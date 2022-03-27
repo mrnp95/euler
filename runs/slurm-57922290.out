@@ -1,0 +1,40 @@
+Changed directory to /rds/user/mrn31/hpc-work/euler/runs.
+
+JobID: 57922290
+======
+Time: Sun 27 Mar 17:08:08 BST 2022
+Running on master node: cpu-e-423
+Current directory: /rds/user/mrn31/hpc-work/euler/runs
+
+Nodes allocated:
+================
+cpu-e-423
+
+numtasks=32, numnodes=1, mpi_tasks_per_node=32 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -ppn 32 -np 32  
+
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/solvers/default.py:16: RuntimeWarning: MUMPS is not available, SciPy built-in solver will be used as a fallback. Performance can be very poor in this case.
+  warnings.warn("MUMPS is not available, "
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
