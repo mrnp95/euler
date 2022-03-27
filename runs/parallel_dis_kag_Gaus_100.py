@@ -285,7 +285,7 @@ def cluster_run(run_index):
     # SAVING   #
     ############
 
-    file_name = "Euler_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
+    file_name = "./data/euler/gaussian/L_50/Euler_DOS_dis_full_" + str(d) + "_tNNN_" + str(x) + ".dat"
     with open(file_name, "x") as file_fd:
         for i in range(0, len(est_energies)):
             file_fd.write(
@@ -300,7 +300,8 @@ def main():
     print("Number of processors: ", mp.cpu_count())
 
     xs = [0.0, 0.28, 0.33, 0.50, 1.0]
-    ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
+    # ds = [1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
+    ds = [4.0, 5.0]
 
     row = len(xs) * len(ds)
     col = 3

@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/dis_G_haldane_skylake_1.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/disordered_G_Haldane_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/dis_euler_skylake_100.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/dis_euler_skylake_50.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/dis_euler_skylake_75.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/dis_euler_skylake_uniform_L100.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_100.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_50.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_75.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_kag_uniform_L100.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/dis_euler_skylake_1.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/dis_euler_skylake_2.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/parallel_dis_kag_Gaus_2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J Euler_topo
+#SBATCH -J kag_uni_100
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
@@ -130,4 +130,4 @@ source /home/mrn31/.bashrc
 
 conda activate kwant
 
-python ./parallel_dis_kag_Gaus_2.py>euler_G_L75.out
+python ./parallel_dis_kag_uniform_L100.py>euler_uniform_L100.out
