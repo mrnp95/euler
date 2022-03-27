@@ -1,0 +1,70 @@
+Changed directory to /rds/user/mrn31/hpc-work/euler/runs.
+
+JobID: 57901650
+======
+Time: Sun 27 Mar 15:00:09 BST 2022
+Running on master node: cpu-e-410
+Current directory: /rds/user/mrn31/hpc-work/euler/runs
+
+Nodes allocated:
+================
+cpu-e-410
+
+numtasks=32, numnodes=1, mpi_tasks_per_node=32 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -ppn 32 -np 32  
+
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/solvers/default.py:16: RuntimeWarning: MUMPS is not available, SciPy built-in solver will be used as a fallback. Performance can be very poor in this case.
+  warnings.warn("MUMPS is not available, "
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/kpm.py:997: RuntimeWarning: overflow encountered in exp
+  return 1 / (1 + np.exp((energy - mu) / temperature))
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 239, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 198, in _process_chunk
+    return [fn(*args) for args in chunk]
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 198, in <listcomp>
+    return [fn(*args) for args in chunk]
+  File "./parallel_dis_kag_Gaus_75.py", line 289, in cluster_run
+    with open(file_name, "x") as file_fd:
+FileExistsError: [Errno 17] File exists: './data/euler/gaussian/L_50/Euler_DOS_dis_full_4.0_tNNN_0.0.dat'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "./parallel_dis_kag_Gaus_75.py", line 332, in <module>
+    main()
+  File "./parallel_dis_kag_Gaus_75.py", line 323, in main
+    for result in results:
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 484, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 611, in result_iterator
+    yield fs.pop().result()
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 388, in __get_result
+    raise self._exception
+FileExistsError: [Errno 17] File exists: './data/euler/gaussian/L_50/Euler_DOS_dis_full_4.0_tNNN_0.0.dat'
