@@ -225,8 +225,8 @@ def cluster_run(run_index):
     epsC = -0.5
     epsD = 0.5
 
-    L = 50 # size of the system (in each dimension)
-    averaging = 200 # number of runs for averaging DOS and conductivities
+    L = 75 # size of the system (in each dimension)
+    averaging = 5 # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
 
@@ -378,7 +378,7 @@ def cluster_run(run_index):
     # SAVING   #
     ############
 
-    file_name = "./data/4band/gaussian/4band11_DOS_dis_full_" + str(d) + "_m_" + str(x) + "_L_" + str(L) + ".dat"
+    file_name = "./data/4band/gaussian/L_75/4band11_DOS_dis_full_" + str(d) + "_m_" + str(x) + "_L_" + str(L) + ".dat"
     with open(file_name, "x") as file_fd:
         for i in range(0, len(est_energies)):
             file_fd.write(
