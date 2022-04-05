@@ -52,8 +52,7 @@ def make_system(type_kagome = 'monolayer'):
     for x in range(int(-L/2), int(L/2)):
         for y in range(0, int(L)):
 
-	    # define hopping and on-site potential on bottom layer kagome
-
+            # define hopping and on-site potential on bottom layer kagome
             bulk[B_sub_a(x,y)] = np.random.normal(0, d, 1)
             bulk[B_sub_b(x,y)] = np.random.normal(0, d, 1)
             bulk[B_sub_c(x,y)] = np.random.normal(0, d, 1)
@@ -80,7 +79,7 @@ def make_system(type_kagome = 'monolayer'):
     #bulk[kwant.builder.HoppingKind((-1,1), B_sub_a,B_sub_c)] = t2
     #bulk[kwant.builder.HoppingKind((0,-1),B_sub_a,B_sub_c)] = t2
 
-        # Next nearest neighbors
+    # Next nearest neighbors
 
     #bulk[kwant.builder.HoppingKind((1,0), B_sub_a,B_sub_a)] = t3
     bulk[kwant.builder.HoppingKind((0,1), B_sub_a,B_sub_a)] = t3
@@ -151,7 +150,7 @@ for x in [0.00, 0.05, 0.25, 0.50, 1.00]:
     
     legend = []
     
-    for d in [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0]:
+    for d in [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0, 4.0, 5.0]:
         
         print("|t''| = "+str(x)+", d = "+str(d))
 
