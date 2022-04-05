@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J N3eu_150_g
+#SBATCH -J N3eu_100_g
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
@@ -21,7 +21,7 @@
 #! 3420 MiB of memory per CPU.
 #SBATCH --ntasks=32
 #! How much wallclock time will be required?
-#SBATCH --time=14:00:00
+#SBATCH --time=00:10:00
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=END
 #! Uncomment this to prevent the job from being requeued (e.g. if
@@ -130,4 +130,4 @@ source /home/mrn31/.bashrc
 
 conda activate kwant
 
-python ./parallel_dis_N3kag_Gaus_150.py>N3euler_G_L150.out
+python ./parallel_dis_N3kag_Gaus_100.py>N3euler_G_L100.out
