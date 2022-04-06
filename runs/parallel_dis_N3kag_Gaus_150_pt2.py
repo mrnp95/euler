@@ -138,7 +138,7 @@ def cluster_run(run_index):
     lat_const = 1  # lattice constant of kagome (unit: nm)
     tn = 0.0  # interlayer hopping between kagomes (unit: eV)
     L = 150  # size of the system (in each dimension)
-    averaging = 2  # number of runs for averaging DOS and conductivities
+    averaging = 200  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
 
@@ -313,7 +313,7 @@ def cluster_run(run_index):
 def main():
     print("Number of processors: ", mp.cpu_count())
 
-    xs = [0.00, 0.05, 0.25, 0.50, 1.00]
+    xs = [0.25, 0.50]
     ds = [0.01, 0.1, 0.3, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0]
 
     row = len(xs) * len(ds)

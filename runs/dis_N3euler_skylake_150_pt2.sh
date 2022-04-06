@@ -21,7 +21,7 @@
 #! 3420 MiB of memory per CPU.
 #SBATCH --ntasks=32
 #! How much wallclock time will be required?
-#SBATCH --time=00:10:00
+#SBATCH --time=04:00:00
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=END
 #! Uncomment this to prevent the job from being requeued (e.g. if
@@ -130,4 +130,4 @@ source /home/mrn31/.bashrc
 
 conda activate kwant
 
-python ./parallel_dis_N3kag_Gaus_150.py>N3euler_G_L150.out
+python ./parallel_dis_N3kag_Gaus_150_pt2.py>pt2N3euler_G_L150.out
