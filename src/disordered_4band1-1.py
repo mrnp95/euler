@@ -43,14 +43,15 @@ def make_system(type_4band = 'monolayer'):
     B_sub_A, B_sub_B, B_sub_C, B_sub_D = Bottom_lat.sublattices 
     
     sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
-    bulk = kwant.Builder(sym)
+    bulk = kwant.Builder()
 
     # define hoppings and on-site potentials
-    
-    bulk[B_sub_A(0,0)] = m+np.random.normal(0,d,1)
-    bulk[B_sub_B(0,0)] = -m+np.random.normal(0,d,1)
-    bulk[B_sub_C(0,0)] = m+np.random.normal(0,d,1)
-    bulk[B_sub_D(0,0)] = -m+np.random.normal(0,d,1)
+    for x in range(-int(L/2), int(L/2)):
+        for y in range(-int(L/2), int(L/2)):
+            bulk[B_sub_A(x,y)] = m+np.random.normal(0, d, 1)
+            bulk[B_sub_B(x,y)] = -m+np.random.normal(0, d, 1)
+            bulk[B_sub_C(x,y)] = m+np.random.normal(0, d, 1)
+            bulk[B_sub_D(x,y)] = -m+np.random.normal(0, d, 1)
   
     bulk[kwant.builder.HoppingKind((0,0), B_sub_A,B_sub_C)] = delta
     bulk[kwant.builder.HoppingKind((0,0), B_sub_B,B_sub_D)] = -delta
@@ -89,7 +90,7 @@ def make_system(type_4band = 'monolayer'):
 
 def trunc(site):
     x, y = abs(site.pos)
-    return abs(x) < 51 and abs(y) < 51
+    return abs(x) <= int(L/2) and abs(y) <= int(L/2)
 
 def circle(site):
     x, y = site.pos
@@ -99,7 +100,7 @@ def circle(site):
 # Declare big things coming
 
 
-for x in [1.00, 0.00]:
+for x in [1.00]:
     
     legend = []
     
@@ -154,7 +155,7 @@ for x in [1.00, 0.00]:
             #print("-----mu------")
             #print([(cond_xx_miu[i], energies[i]) for i in range(0, len(energies))])
             #print()
-            cond_xx_T = [cond_xx(mu = -1, temperature = T[i])/(area_per_site) for i in range(len(T)) ]
+            cond_xx_T = [cond_xx(mu = 0, temperature = T[i])/(area_per_site) for i in range(len(T)) ]
 
             # xy component
 
@@ -163,7 +164,7 @@ for x in [1.00, 0.00]:
             #cond_xy = kwant.kpm.conductivity(fsyst, alpha='x', beta='y')
 
             cond_xy_miu = [cond_xy(mu = e, temperature = 0.01)/(area_per_site) for e in energies ]
-            cond_xy_T = [cond_xy(mu = -1, temperature = T[i])/(area_per_site) for i in range(len(T)) ] 
+            cond_xy_T = [cond_xy(mu = 0, temperature = T[i])/(area_per_site) for i in range(len(T)) ] 
         
             # For estimator
             

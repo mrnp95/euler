@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 lat_const = 1  # lattice constant of square lattice (unit: nm)
 t0 = 1.00*(-1j)/2    # hoppings (unit: eV)
-t1 = 0.00
+t1 = -0.50
 t2 = -1.50
 m = 0.50
 delta = 0.50
@@ -44,14 +44,16 @@ def make_system(type_4band = 'monolayer'):
     B_sub_A, B_sub_B, B_sub_C, B_sub_D = Bottom_lat.sublattices 
     
     sym = kwant.TranslationalSymmetry(Bravais_vector[0], Bravais_vector[1])
-    bulk = kwant.Builder(sym)
+    bulk = kwant.Builder()
 
     # define hoppings and on-site potentials
     
-    bulk[B_sub_A(0,0)] = m+np.random.normal(0,d,1)
-    bulk[B_sub_B(0,0)] = -m+np.random.normal(0,d,1)
-    bulk[B_sub_C(0,0)] = m+np.random.normal(0,d,1)
-    bulk[B_sub_D(0,0)] = -m+np.random.normal(0,d,1)
+    for x in range(-int(L/2), int(L/2)):
+        for y in range(-int(L/2), int(L/2)):
+            bulk[B_sub_A(x,y)] = m+np.random.normal(0, d, 1)
+            bulk[B_sub_B(x,y)] = -m+np.random.normal(0, d, 1)
+            bulk[B_sub_C(x,y)] = m+np.random.normal(0, d, 1)
+            bulk[B_sub_D(x,y)] = -m+np.random.normal(0, d, 1)
   
     bulk[kwant.builder.HoppingKind((0,0), B_sub_A,B_sub_C)] = delta
     bulk[kwant.builder.HoppingKind((0,0), B_sub_B,B_sub_D)] = -delta
@@ -84,24 +86,16 @@ def make_system(type_4band = 'monolayer'):
     bulk[kwant.builder.HoppingKind((1,0), B_sub_D,B_sub_D)] = t1/2  
 
     bulk[kwant.builder.HoppingKind((1,1), B_sub_A,B_sub_A)] = -t2/2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_A,B_sub_A)] = -0
     bulk[kwant.builder.HoppingKind((-1,-1), B_sub_A,B_sub_A)] = -t2/2
-    bulk[kwant.builder.HoppingKind((-1,1), B_sub_A,B_sub_A)] = 0
 
     bulk[kwant.builder.HoppingKind((1,1), B_sub_C,B_sub_C)] = -t2/2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_C,B_sub_C)] = -0
     bulk[kwant.builder.HoppingKind((-1,-1), B_sub_C,B_sub_C)] = -t2/2
-    bulk[kwant.builder.HoppingKind((-1,1), B_sub_C,B_sub_C)] = 0
 
     bulk[kwant.builder.HoppingKind((1,1), B_sub_B,B_sub_B)] = t2/2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_B,B_sub_B)] = 0
     bulk[kwant.builder.HoppingKind((-1,-1), B_sub_B,B_sub_B)] = t2/2
-    bulk[kwant.builder.HoppingKind((-1,1), B_sub_B,B_sub_B)] = 0
 
     bulk[kwant.builder.HoppingKind((1,1), B_sub_D,B_sub_D)] = t2/2
-    bulk[kwant.builder.HoppingKind((1,-1), B_sub_D,B_sub_D)] = 0
     bulk[kwant.builder.HoppingKind((-1,-1), B_sub_D,B_sub_D)] = t2/2
-    bulk[kwant.builder.HoppingKind((-1,1), B_sub_D,B_sub_D)] = 0
 
     return bulk
 
@@ -109,7 +103,7 @@ def make_system(type_4band = 'monolayer'):
 
 def trunc(site):
     x, y = abs(site.pos)
-    return abs(x) < 51 and abs(y) < 51
+    return abs(x) <= int(L/2) and abs(y) <= int(L/2)
 
 def circle(site):
     x, y = site.pos

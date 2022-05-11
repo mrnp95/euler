@@ -98,7 +98,7 @@ def make_system(type_4band = 'monolayer'):
 
 def trunc(site):
     x, y = abs(site.pos)
-    return abs(x) < int(L/2) and abs(y) < int(L/2)
+    return abs(x) <= int(L/2) and abs(y) <= int(L/2)
 
 def circle(site):
     x, y = site.pos
