@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/dis_N3euler_skylake_150.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/parallel_dis_N3kag_Gaus_150.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/euler.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/.ipynb_checkpoints/main_notebook-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/main_notebook.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.01.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.25.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.4.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +23,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="24hA7Ad7oluHtDLoYNpp2wIlS9p" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -22,13 +34,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,7 +61,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
