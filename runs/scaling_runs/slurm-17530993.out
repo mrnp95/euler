@@ -1,0 +1,46 @@
+Changed directory to /rds/user/mrn31/hpc-work/euler/runs/scaling_runs.
+
+JobID: 17530993
+======
+Time: Fri  7 Apr 20:41:30 BST 2023
+Running on master node: cpu-e-472
+Current directory: /rds/user/mrn31/hpc-work/euler/runs/scaling_runs
+
+Nodes allocated:
+================
+cpu-e-472
+
+numtasks=32, numnodes=1, mpi_tasks_per_node=32 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -ppn 32 -np 32  
+
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/solvers/default.py:16: RuntimeWarning: MUMPS is not available, SciPy built-in solver will be used as a fallback. Performance can be very poor in this case.
+  warnings.warn("MUMPS is not available, "
+Exception in thread QueueManagerThread:
+Traceback (most recent call last):
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 394, in _queue_management_worker
+    work_item.future.set_exception(bpe)
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 539, in set_exception
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x2ab38009cd90 state=cancelled>
+Traceback (most recent call last):
+  File "./par_Kagome_Gauss_L150.py", line 408, in <module>
+    main()
+  File "./par_Kagome_Gauss_L150.py", line 399, in main
+    for result in results:
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/process.py", line 484, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 611, in result_iterator
+    yield fs.pop().result()
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 388, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+slurmstepd: error: *** JOB 17530993 ON cpu-e-472 CANCELLED AT 2023-04-08T00:41:31 DUE TO TIME LIMIT ***

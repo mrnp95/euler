@@ -1,0 +1,21 @@
+Changed directory to /rds/user/mrn31/hpc-work/euler/runs/scaling_runs.
+
+JobID: 17530619
+======
+Time: Fri  7 Apr 20:27:38 BST 2023
+Running on master node: cpu-e-632
+Current directory: /rds/user/mrn31/hpc-work/euler/runs/scaling_runs
+
+Nodes allocated:
+================
+cpu-e-632
+
+numtasks=32, numnodes=1, mpi_tasks_per_node=32 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -ppn 32 -np 32  
+
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/solvers/default.py:16: RuntimeWarning: MUMPS is not available, SciPy built-in solver will be used as a fallback. Performance can be very poor in this case.
+  warnings.warn("MUMPS is not available, "
+slurmstepd: error: *** JOB 17530619 ON cpu-e-632 CANCELLED AT 2023-04-07T20:34:20 ***

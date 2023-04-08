@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J kagome_g_100
+#SBATCH -J 100_kag_g
 #! Which project should be charged:
 #SBATCH -A SLAGER-SL3-CPU
 #SBATCH -p skylake-himem
@@ -21,7 +21,7 @@
 #! 3420 MiB of memory per CPU.
 #SBATCH --ntasks=32
 #! How much wallclock time will be required?
-#SBATCH --time=02:00:00
+#SBATCH --time=12:00:00
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=END
 #! Uncomment this to prevent the job from being requeued (e.g. if
