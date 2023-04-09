@@ -43,3 +43,4 @@ Traceback (most recent call last):
   File "/home/mrn31/.conda/envs/kwant/lib/python3.8/concurrent/futures/_base.py", line 388, in __get_result
     raise self._exception
 concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+slurmstepd: error: *** JOB 17542154 ON cpu-e-737 CANCELLED AT 2023-04-09T01:14:14 DUE TO TIME LIMIT ***
