@@ -2,54 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.02_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.02_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.02_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.05_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.05_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.05_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.0_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.0_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.0_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.1_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.1_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.1_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.2_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.2_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.2_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.3_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.3_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.3_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.4_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.4_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.4_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.5_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.5_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.5_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.6_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.6_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.6_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.7_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.7_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.7_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.8_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.8_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_0.8_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_1.0_tNNN_1.0_L_100.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_1.0_tNNN_1.0_L_150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/data/scaling/Euler_DOS_dis_full_1.0_tNNN_1.0_L_75.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/4band11_par_dis_nodal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/4band_dis_nodal.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/disordered_Kagome_Gaussian.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/disordered_Kagome_Uniform.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_100.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_150.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_75.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Haldane_Gauss_latest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L100.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L75.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Uni_L100.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Uni_L150.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Uni_L75.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
