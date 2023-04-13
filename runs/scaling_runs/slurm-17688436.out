@@ -1,0 +1,26 @@
+Loading rhel7/default-ccl
+  Loading requirement: dot slurm turbovnc/2.0.1 vgl/2.5.1/64 singularity/current
+    rhel7/global intel/compilers/2020.2 intel/mkl/2020.2 intel/impi/2020.2/intel
+    intel/libs/idb/2020.2 intel/libs/tbb/2020.2 intel/libs/ipp/2020.2
+    intel/libs/daal/2020.2 intel/bundles/complib/2020.2 cmake/latest
+Changed directory to /rds/user/mrn31/hpc-work/euler/runs/scaling_runs.
+
+JobID: 17688436
+======
+Time: Thu 13 Apr 00:22:46 BST 2023
+Running on master node: cpu-q-320
+Current directory: /rds/user/mrn31/hpc-work/euler/runs/scaling_runs
+/usr/bin/perl: symbol lookup error: /usr/local/software/slurm/slurm-20.11.9/lib64/perl5/auto/Slurm/Slurm.so: undefined symbol: Perl_xs_apiversion_bootcheck
+
+Nodes allocated:
+================
+
+
+numtasks=76, numnodes=1, mpi_tasks_per_node=76 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -ppn 76 -np 76  
+
+/home/mrn31/.conda/envs/kwant/lib/python3.8/site-packages/kwant/solvers/default.py:16: RuntimeWarning: MUMPS is not available, SciPy built-in solver will be used as a fallback. Performance can be very poor in this case.
+  warnings.warn("MUMPS is not available, "
