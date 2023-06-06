@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1724e9d-799e-40ab-9bb7-fc2c7c1dbad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_150_p1.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_150_p2.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_150_p3.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/kagome_G_150.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/4band11_par_dis_nodal.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/scaling_runs/4band11_par_dis_nodal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p1.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p2.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p3.py" beforeDir="false" afterPath="$PROJECT_DIR$/runs/scaling_runs/par_Kagome_Gauss_L150_p3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/.ipynb_checkpoints/main_notebook-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/workdir/.ipynb_checkpoints/main_notebook-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/main_notebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/workdir/main_notebook.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.01.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/workdir/plots/kagome/gaussian/N3_Kagome_Gauss_t3_0.3_L_100_sigma_0.01.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

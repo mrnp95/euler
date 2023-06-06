@@ -120,8 +120,8 @@ def cluster_run(run_index):
     # Default settings
 
     lat_const = 1  # lattice constant of kagome (unit: nm)
-    L = 150  # size of the system (in each dimension)
-    averaging = 190  # number of runs for averaging DOS and conductivities
+    L = 180  # size of the system (in each dimension) 150 - 200
+    averaging = 5  # number of runs for averaging DOS and conductivities --> 300
 
     # Domains of cond function for later
     N_bins = 100  # Bins for energies in the estimator
@@ -376,9 +376,9 @@ def cluster_run(run_index):
 def main():
     print("Number of processors: ", mp.cpu_count())
 
-    xs = [0.33, 0.50] #[0.00, 0.28, 0.33, 0.50, 1.00]
-    ds = [0.00, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0]
-
+    xs = [0.0, 1.0] #[0.00, 0.28, 0.33, 0.50, 1.00]
+    # ds = [0.00, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0]
+    ds = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6]
     row = len(xs) * len(ds)
     col = 3
 
