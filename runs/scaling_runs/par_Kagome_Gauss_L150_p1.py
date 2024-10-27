@@ -121,7 +121,7 @@ def cluster_run(run_index):
 
     lat_const = 1  # lattice constant of kagome (unit: nm)
     L = 150  # size of the system (in each dimension)
-    averaging = 5  # number of runs for averaging DOS and conductivities
+    averaging = 65  # number of runs for averaging DOS and conductivities
 
     # Domains of cond function for later
     N_bins = 100  # Bins for energies in the estimator
